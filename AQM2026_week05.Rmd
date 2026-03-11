@@ -121,7 +121,7 @@ abline(v = 0,
 
 Given the shape of these (hypothetical and simplified) likelihood functions, we are more certain about the parameter estimated by the right likelihood function than we are about the parameter on the left. 
 
-In the lecture we have seen that the **Fisher Information Matrix** plays a crucial role when we want to calculate MLE standard errors and subsequently apply these to test hypothesis. The reason is that this matrix closely corresponds to the asymptotic variance-covariance matrix. The Fisher Information Matrix is defined as:
+In the lecture we have seen that the **Fisher Information Matrix** plays a crucial role when we want to calculate MLE standard errors and subsequently apply these to test hypotheses. The reason is that this matrix closely corresponds to the asymptotic variance-covariance matrix. The Fisher Information Matrix is defined as:
 
 $$
 \begin{aligned}
@@ -254,7 +254,7 @@ In the very last line of the above command, we tell `optim()` to return the Hess
 ?optim
 ```
 
-How come that the optimization algorithm so easily comes back with an estimate for the Hessian? Many optimization algorithms, like the one we use a lot, BFGS, do not try to maximize a function itself, but maximize an *approximation* of the function. [In fact, log-likelihood functions can be approximated by quadratic functions](https://strimmerlab.github.io/publications/lecture-notes/MATH20802/quadratic-approximation-and-normal-asymptotics.html?fbclid=IwAR0bviB6wKSfvUqW5Zip36MTU6eHbp-x-wrtezDNA8Cq3dDj_IxC1CJ3tD4). We have seen that the Taylor series expansion provides such approximations by relying on the Gradient vector and the Hessian matrix. Therefore, the algorithm needs to calculate an estimate of the Hessian anyway. The algorithms that do not rely on derivatives can also just calculate the Hessian post factum, once the optimization is complete. 
+How come that the optimization algorithm so easily comes back with an estimate for the Hessian? Many optimization algorithms, like the one we use a lot, BFGS, do not try to maximize a function itself, but maximize an *approximation* of the function. We have seen that the Taylor series expansion provides such approximations by relying on the Gradient vector and the Hessian matrix. Therefore, the algorithm needs to calculate an estimate of the Hessian anyway. The algorithms that do not rely on derivatives can also just calculate the Hessian post factum, once the optimization is complete. 
 
 Now we want to implement it to work for us.
 
@@ -336,7 +336,7 @@ res <- optim(
   y = y,
   X = X,
   control = list(fnscale = -1),
-  method = "L-BFGS-B",
+  method = "BFGS",
   hessian = TRUE
 )
 
