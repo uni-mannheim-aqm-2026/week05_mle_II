@@ -1,8 +1,8 @@
 ---
 title: "AQM Week 05 -- More Maximum Likelihood"
 author: 
-  - Domantas Undzėnas, Muhammad Muhammad
-date: "March 13|14, 2025"
+  - Domantas Undzėnas, Lisa-Marie Müller
+date: "March 12|13, 2026"
 output:
   html_document:
     toc: true
