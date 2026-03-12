@@ -155,7 +155,7 @@ $$
 -f_1''(\theta) = 0.6 \, \text{and} \, -f_2''(\theta) = 6
 $$
 
-The negative second derivate of the first function is lower than the negative second derivative of the second function. Now ask yourself: From just looking at the curvature of the two log-likelihood functions, would you be more certain about the maximum likelihood estimate of the first function or of the second function? And does this fit to their values of the negative second derivative?
+The negative second derivative of the first function is lower than the negative second derivative of the second function. Now ask yourself: From just looking at the curvature of the two log-likelihood functions, would you be more certain about the maximum likelihood estimate of the first function or of the second function? And does this fit to their values of the negative second derivative?
 
 
 ```{r lik2, echo=FALSE,  fig.height=5, fig.width=8}
