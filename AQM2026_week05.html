@@ -1653,8 +1653,8 @@ constant are a constant):</p>
 <p><span class="math display">\[
 -f_1&#39;&#39;(\theta) = 0.6 \, \text{and} \, -f_2&#39;&#39;(\theta) = 6
 \]</span></p>
-<p>The negative second derivate of the first function is lower than the
-negative second derivative of the second function. Now ask yourself:
+<p>The negative second derivative of the first function is lower than
+the negative second derivative of the second function. Now ask yourself:
 From just looking at the curvature of the two log-likelihood functions,
 would you be more certain about the maximum likelihood estimate of the
 first function or of the second function? And does this fit to their
@@ -1689,7 +1689,7 @@ standard errors is fairly simple in <code>R</code>. In fact, we need
 only need to use the Hessian matrix as returned by
 <code>optim()</code>.</p>
 <p>Let’s first have a look at the code we used last week to optimize the
-log-likelihood of the linear model:</p>
+log-likelihood of the exponential model:</p>
 <pre class="r"><code>res_expo &lt;- optim(
   # par takes a vector of starting values for all parameters to be estimated
   par = startval,
@@ -1884,7 +1884,7 @@ res &lt;- optim(
   y = y,
   X = X,
   control = list(fnscale = -1),
-  method = &quot;L-BFGS-B&quot;,
+  method = &quot;BFGS&quot;,
   hessian = TRUE
 ) 
 
@@ -1900,9 +1900,9 @@ colnames(out) &lt;- c(&quot;MLE&quot;, &quot;ML SE&quot;, &quot;OLS&quot;, &quot
 
 out</code></pre>
 <pre><code>##                    MLE     ML SE        OLS    OLS SE
-## (Intercept) -1.0806975 0.2421484 -1.0807133 0.2497584
-## X[, 2]       0.5657191 0.3135698  0.5657327 0.3234243
-## X[, 3]      -0.5424111 0.2707870 -0.5423921 0.2792970</code></pre>
+## (Intercept) -1.0807134 0.2421498 -1.0807133 0.2497584
+## X[, 2]       0.5657329 0.3135715  0.5657327 0.3234243
+## X[, 3]      -0.5423922 0.2707886 -0.5423921 0.2792970</code></pre>
 <p>We can see that the point estimates are the same for ML and OLS, but
 the standard errors diverge for small sample sizes. In fact, the ML
 standard errors are biased downwards for small sample sizes.</p>
@@ -2183,7 +2183,7 @@ res &lt;- optim(
   y = df$y,
   X = cbind(1, df$x1, df$x2),
   control = list(fnscale = -1),
-  method = &quot;L-BFGS-B&quot;,
+  method = &quot;BFGS&quot;,
   hessian = TRUE
 )
 
@@ -2268,7 +2268,7 @@ unrestricted &lt;- optim(
   y = y,
   X = X,
   control = list(fnscale = -1),
-  method = &quot;L-BFGS-B&quot;
+  method = &quot;BFGS&quot;
 )
 
 
@@ -2282,7 +2282,7 @@ restricted &lt;- optim(
   X = X[, 1:2],
   # restricted model
   control = list(fnscale = -1),
-  method = &quot;L-BFGS-B&quot;
+  method = &quot;BFGS&quot;
 )
 
 # Call the log-likelihoods

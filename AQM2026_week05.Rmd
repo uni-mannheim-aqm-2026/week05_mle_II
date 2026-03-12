@@ -225,7 +225,7 @@ All of this sounds complicated and confusing. But **the main message is**: We ca
 
 While this sounds all complicated, ironically, getting the MLE standard errors is fairly simple in `R`. In fact, we need only need to use the Hessian matrix as returned by `optim()`.
 
-Let's first have a look at the code we used last week to optimize the log-likelihood of the linear model:
+Let's first have a look at the code we used last week to optimize the log-likelihood of the exponential model:
 
 ```{r optim(), eval = FALSE}
 res_expo <- optim(
@@ -434,7 +434,7 @@ res <- optim(
   y = y,
   X = X,
   control = list(fnscale = -1),
-  method = "L-BFGS-B",
+  method = "BFGS",
   hessian = TRUE
 ) 
 
@@ -720,7 +720,7 @@ res <- optim(
   y = df$y,
   X = cbind(1, df$x1, df$x2),
   control = list(fnscale = -1),
-  method = "L-BFGS-B",
+  method = "BFGS",
   hessian = TRUE
 )
 
@@ -801,7 +801,7 @@ unrestricted <- optim(
   y = y,
   X = X,
   control = list(fnscale = -1),
-  method = "L-BFGS-B"
+  method = "BFGS"
 )
 
 
@@ -815,7 +815,7 @@ restricted <- optim(
   X = X[, 1:2],
   # restricted model
   control = list(fnscale = -1),
-  method = "L-BFGS-B"
+  method = "BFGS"
 )
 
 # Call the log-likelihoods
